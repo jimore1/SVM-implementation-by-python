@@ -1,26 +1,26 @@
 # SVM implementation by python in scatter pots
 
 * import the models
-
+```python
     import numpy as np
     import joblib
     from sklearn import svm
     import matplotlib.pyplot as plt
-
+```
 * pre-define the scatter pots
-
+```python
     x = [[20, 10], [4, 5], [18, 9], [10, 7], [9, 1], [13, 18]]
     x = np.array(x)
     y = [1, 1, 0, 0, 1, 0]
     y = np.array(y)
-
+```
 * training model
-
+```python
     model = svm.SVC(C=10, kernel='linear')
     model.fit(x, y)
-
+```
 * draw the scatter pots with their predicted genre
-
+```python
     X=[[20, 10], [4, 5], [18, 9], [10, 7], [9, 1], [13, 18]]
     
     # predict
@@ -31,21 +31,21 @@
             plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c='b')
         else:
             plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c='r')
-
+```
 * corresponding support vector
-
+```python
     Support_vector = model.support_vectors_
     print("Support_vector:", Support_vector)
-
+```
 * the parameters of Linear SVM
-
+```python
     w = model.coef_
     print("w:", w)
     b = model.intercept_
     print("b:", b)
-
+```
 * draw the result graphic
-
+```python
     if w[0, 1] != 0:
         xx = np.arange(0, 20, 0.1)
         # optimal boundary
@@ -63,3 +63,4 @@
         yy = np.arange(0, 10, 0.1)
         plt.scatter(xx, yy)
     plt.show()
+```
